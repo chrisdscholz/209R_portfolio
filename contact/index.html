@@ -7,16 +7,17 @@
 </head>
 <body>
     <h1>Menu</h1>
-
     <nav class="menu">
-        <li><a href="../index.html">Main</a></li>
-        <li><a href="../projects/index.html">Projects</a></li>
-        <li><a href="../resume/index.html">Resume</a></li>
-        <li><a href="https://github.com/chrisdscholz", target="_blank">My_GitHub_Profile</a></li>
+        <ul>
+            <li><a href="../index.html">Main</a></li>
+            <li><a href="../projects/index.html">Projects</a></li>
+            <li><a href="../resume/index.html">Resume</a></li>
+            <li><a class = "current" href="index.html">Contact</a></li>
+            <li><a href="https://github.com/chrisdscholz", target="_blank">My_GitHub_Profile</a></li>
+        </ul>
     </nav>
 
     <h1>Contact</h1>
-    <p>Contact</p>
 
     <form action="mailto:cscholz@ucsd.edu", method="post", enctype="text/plain">
         <label for="email">
@@ -33,5 +34,8 @@
         </label>
         <button>Submit</button>
     </form>
+
+    <link href="../style.css"
+    rel="stylesheet" />
 </body>
 </html>
