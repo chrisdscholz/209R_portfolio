@@ -3,6 +3,22 @@ html {
     accent-color: var(--color-accent);
 }
 
+h1 {
+    font-size: 300%;
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
+h2 {
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
+h3 {
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
 body {
     /* Set line height to 1.5 times the font size
     and use the OS's UI font as the website font
@@ -12,7 +28,7 @@ body {
     margin-inline: auto;
     padding: 5ch;
 } 
-    
+
 nav {
     display: flex;
     margin-bottom: 0.5em;
@@ -77,4 +93,23 @@ div.projects article {
     grid-template-rows: subgrid;
     grid-row: span 3;
     margin: 0;
+}
+
+div.resume {
+    font: inherit;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3em;
+}
+
+div.resume.experience {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
+}
+
+div.resume.education {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
 }
