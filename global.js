@@ -23,9 +23,28 @@ let pages = [
 let nav = document.createElement('nav');
 document.body.prepend(nav);
 
+const ARE_WE_HOME = document.documentElement.classList.contains('home');
+
 for (let p of pages) {
     let url = p.url;
     let title = p.title;
 
-    nav.insertAdjacentHTML('beforeend', '<a href="${url}">${title}</a>');
+    if (!ARE_WE_HOME && !url.startsWith('http')) {
+        url = '../' + url;
+    }
+
+    //nav.insertAdjacentHTML('beforeend', `<a href="${url}">${title}</a>`);
+
+    let a = document.createElement('a');
+    a.href = url;
+    a.textContent = title;
+    nav.append(a);
+
+    if (a.host === location.host && a.pathname === location.pathname) {
+        a.classList.add('current');
+    }
+
+    if (a.host !== location.host) {
+        a.target = "_blank";
+    }
 }
