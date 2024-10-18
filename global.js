@@ -5,10 +5,10 @@ function $$(selector, context = document) {
 }
 
 let pages = [
-    {url: '/', title: 'Home'},
-    {url: '/projects/', title: 'Projects'},
-    {url: '/contact/', title: 'Contact'},
-    {url: '/resume/', title: 'Resume'},
+    {url: '', title: 'Home'},
+    {url: 'projects/', title: 'Projects'},
+    {url: 'contact/', title: 'Contact'},
+    {url: 'resume/', title: 'Resume'},
     {url: 'https://github.com/chrisdscholz', title: 'My GitHub Profile'},
 ];
 
@@ -21,17 +21,17 @@ for (let p of pages) {
     let url = p.url;
     let title = p.title;
 
-/*     if (!ARE_WE_HOME && !url.startsWith('http')) {
-        url = '..' + url;
-    } */
+    if (!ARE_WE_HOME && !url.startsWith('http')) {
+        url = '../' + url;
+    }
 
     let a = document.createElement('a');
     a.href = url;
     a.textContent = title;
     nav.append(a);
 
-    let normPath = a.pathname === '/' || a.pathname === '/index.html' ? '/' : a.pathname;
-    let currPath = location.pathname === '/' || location.pathname === '/index.html' ? '/' : location.pathname;
+    let normPath = a.pathname === '' || a.pathname === '/index.html' ? '' : a.pathname;
+    let currPath = location.pathname === '' || location.pathname === '/index.html' ? '' : location.pathname;
 
 /*     if (a.host === location.host && a.pathname === location.pathname) {
         a.classList.add('current');
