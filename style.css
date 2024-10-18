@@ -2,7 +2,7 @@ html {
     --color-accent: oklch(65% 50% 0);
     accent-color: var(--color-accent);
     --border-color: oklch(50% 10% 200 / 40%);
-    color-scheme: dark;
+    color-scheme: auto;
 }
 
 h1 {
@@ -116,4 +116,12 @@ div.resume.education {
     display: grid;
     grid-template-columns: subgrid;
     grid-column: 1 / -1;
+}
+
+label.color-scheme {
+    position:absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 80%;
+    font-family: inherit;
 }

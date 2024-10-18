@@ -48,3 +48,30 @@ for (let p of pages) {
         a.target = "_blank";
     }
 }
+
+document.body.insertAdjacentHTML(
+    'afterbegin',
+    `
+        <label class="color-scheme">
+            Theme:
+            <select id="selector">
+                <option value="auto">Automatic</option>
+                <option value="light dark">Light Dark</option>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </label>`,
+);
+
+let select = document.querySelector("#selector");
+
+select.addEventListener('input', function (event) {
+    console.log('color scheme changed to', event.target.value);
+    document.documentElement.style.setProperty('color-scheme', event.target.value);
+    localStorage.colorScheme = event.target.value;
+})
+
+if ("colorScheme" in localStorage) {
+    document.documentElement.style.setProperty('color-scheme', localStorage.colorScheme);
+    select.value = localStorage.colorScheme;
+}
