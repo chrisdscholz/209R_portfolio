@@ -62,7 +62,7 @@ document.body.insertAdjacentHTML(
 
 let select = document.querySelector("#selector");
 
-select.addEventListener('input', function (event) {
+select.addEventListener('input', function(event) {
     console.log('color scheme changed to', event.target.value);
     document.documentElement.style.setProperty('color-scheme', event.target.value);
     localStorage.colorScheme = event.target.value;
@@ -72,3 +72,29 @@ if ("colorScheme" in localStorage) {
     document.documentElement.style.setProperty('color-scheme', localStorage.colorScheme);
     select.value = localStorage.colorScheme;
 }
+
+let contForm = document.querySelector("#eContact");
+
+contForm?.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    let eURL = ""
+
+    let data = new FormData(contForm);
+
+    for (let [name, value] of data) {
+        if (name === 'email') {
+            eURL = eURL + "mailto:" + value + "?"
+        }
+
+        if (name === 'subject') {
+            eURL = eURL + "subject=" + value + "&";
+        }
+
+        if (name === 'body') {
+            eURL = eURL + "body=" + encodeURIComponent(value);
+        }
+    }
+
+    location.href = eURL;
+})
